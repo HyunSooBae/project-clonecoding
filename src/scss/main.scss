@@ -1,6 +1,27 @@
+@import 'reset';
+
+html { font-size: 6.25%; }
+
+body { overflow-x: hidden; overflow-y: scroll; font-family: 'KakaoBig', sans-serif; font-size: 16rem; word-break: keep-all; color: #191919; }
+a { color: #191919; text-decoration: none; }
+[lang="en"] { font-family: 'gilroy', 'KakaoBig', sans-serif; }
+
+/* WRAP */
+.wrap-wide { max-width: 1680rem; margin: 0 auto; position: relative; }
+.wrap-middle { max-width: 1500rem; margin: 0 auto; position: relative; }
+.wrap { max-width: 1244rem; margin: 0 auto; position: relative; }
+.wrap-narrow { max-width: 988rem; margin: 0 auto; position: relative; }
+
 header {
+
   h1 {
-    display: flex;
-    color: royalblue;
+    width: 145rem;
+    height: 36rem;
   }
+}
+.header__inner {
+  max-width: 1500px;
+  margin:0 auto;
+  border: 4px solid red;
+  box-sizing: border-box;
 }
