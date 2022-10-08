@@ -1,5 +1,18 @@
 @import 'reset';
 
+// common
+.sr-only {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+  clip-path: inset(0px 0px 99.9% 99.9%);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  border: 0;
+}
+
 html {
   font-size: 6.25%;
 }
@@ -62,10 +75,39 @@ a {
 }
 
 // icons
+.ke-guide--icon {
+  display: inline-block;
+}
+
 .ke-guide--icon svg {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.ke-btn__basic {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 220rem;
+  padding: 16rem 40rem 17rem;
+  position: relative;
+  text-align: center;
+  font-size: 16rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: transparent;
+  border: 3rem solid #fff;
+  border-radius: 30rem;
+  transition: color .3s, background .3s, border .3s;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  &:hover {
+    color: #191919;
+    background: #FFE100;
+    border-color: #FFE100;
+  }
 }
 
 .ke-btn__circle {
@@ -119,7 +161,88 @@ a {
   }
 }
 
-// ----------------------------------------------------------------------------
+.ke-btn__point {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10rem 29rem 10rem 0;
+  position: relative;
+  text-align: center;
+  font-size: 15rem;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #888;
+  background: transparent;
+  border: none;
+  transition: color cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+
+  &-circle {
+    width: 22rem;
+    height: 22rem;
+    margin-top: -11rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    background: #eee;
+    border-radius: 50%;
+    transition: background cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+    overflow: hidden;
+
+    .ke-guide--icon {
+      display: block;
+      width: 7rem;
+      position: relative;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      path {
+        stroke: #888;
+        transition: stroke cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+      }
+
+      svg {
+        transition: transform .4s;
+      }
+    }
+
+    &:hover {
+      background: #FFE100;
+    }
+  }
+}
+
+.ke-btn--case-fill {
+  color: #191919;
+  background: #fff;
+}
+
+.btn__basic {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 220rem;
+  padding: 16rem 40rem 17rem;
+  position: relative;
+  text-align: center;
+  font-size: 16rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #fff;
+  background: transparent;
+  border: 3rem solid #fff;
+  border-radius: 30rem;
+  transition: color .3s, background .3s, border .3s;
+  transition-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  &:hover {
+    color: #191919;
+    background: #FFE100;
+    border-color: #FFE100;
+  }
+}
+
+// 헤더 header
 header {
   width: 100%;
   height: 74rem;
@@ -133,8 +256,6 @@ header {
     max-width: 1500px;
     margin: 0 auto;
     position: relative;
-    border: 4px solid red;
-    box-sizing: border-box;
   }
 
   h1 {
@@ -142,24 +263,43 @@ header {
     height: 36rem;
     position: absolute;
     left: 0;
-    top: 16rem;
+    top: 19rem;
 
     a {
       display: block;
       width: 100%;
       height: 100%;
       padding: 8rem 0;
+
+      svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
   .menu-container {
+    display: block;
+    width: 100%;
+    position: relative;
+    font-size: 0;
+    line-height: 1;
     text-align: center;
 
     #menu {
       display: inline-block;
 
+      a {
+        display: inline-block;
+        line-height: 1.66;
+        letter-spacing: -0.01em;
+      }
+
       li {
         display: inline;
+        vertical-align: middle;
+        position: relative;
 
         a {
           height: 74rem;
@@ -197,13 +337,16 @@ header {
   }
 
   .header__career {
+    display: inline-block;
+    padding: 10rem 30rem 10rem 0;
     position: absolute;
-    top: 14rem;
     right: 0;
+    top: 14rem;
     font-size: 16rem;
     line-height: 1.66;
     letter-spacing: -0.01em;
     font-weight: 600;
+    z-index: 2;
     transition: color .3s;
 
     &-circle {
@@ -287,21 +430,67 @@ header {
   }
 }
 
-// -----------------------------------------------------------
-// main-visual swiper-slider
+// 메인 비주얼 스와이퍼 영역 main-visual swiper-slider
 .swiper {
   width: 100%;
   height: 100%;
 }
 
-.main-visual__content {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  color: #fff;
-}
+.main-visual {
+  width: 100%;
+  height: 100vh;
+  background-color: #333;
 
-// -----------------------------------------------------------
+  &__item {}
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    width: 100%;
+    padding-top: 48rem;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  &__title {
+    font-size: 60rem;
+    line-height: 1.26;
+    font-weight: 600;
+    color: #fff;
+
+    span {
+      color: #FFE100;
+    }
+  }
+
+  &__action {
+    margin-top: 53rem;
+    font-size: 0;
+
+    >* {
+      margin-right: 9rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
 
 // main-news 메인 뉴스
 .main-news {
@@ -342,9 +531,13 @@ header {
 
   &__list {
     column-count: 2;
+    column-width: 562rem;
+    column-gap: 120rem;
+    // gap: 0 120rem;
 
     .ke-list {
       &__item {
+        // display: inline-block;
         width: 562rem;
         padding-top: 72rem;
         margin-bottom: 70rem;
@@ -352,6 +545,13 @@ header {
 
         &:nth-child(1) {
           margin-top: 311rem;
+          padding-top: 0;
+          border-top: none;
+        }
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          padding-top: 0;
           border-top: none;
         }
 
@@ -467,6 +667,18 @@ header {
         position: relative;
         border-radius: 20rem;
         overflow: hidden;
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(25, 25, 25, 0.03);
+          border-radius: 20rem;
+        }
       }
     }
   }
@@ -483,32 +695,660 @@ header {
 }
 
 // 메인 서비스 (흐르는 배너)
+.main-service {
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 20rem;
+  }
 
-.main-service {}
+  &__link {
+    display: block;
+    width: 310rem;
+    padding-top: 100%;
+    position: relative;
+    border-radius: 20rem;
+    overflow: hidden;
 
-.main-service__logo-icon {
-  width: 22rem;
-  height: 22rem;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  background: #FFE100;
-  border-radius: 50%;
-  opacity: 0;
-  -webkit-transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
-  transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    &:hover {
+
+      .main-service__message-overlay,
+      .main-service__txt,
+      .main-service__logo-icon,
+      .main-service__logo-img img.main-service__logo-img--hover,
+      .main-service__logo-img img.main-service__logo-img--basic {
+        opacity: 1;
+      }
+
+      .main-service__logo-img img.main-service__logo-img--basic {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__thumb {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      border-radius: 20rem;
+    }
+  }
+
+  &__message {
+    width: 100%;
+    height: 100%;
+    padding: 32rem 30rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #001EFF;
+      border-radius: 20rem;
+      opacity: 0;
+      transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    &__txt {
+      position: relative;
+      opacity: 0;
+      transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+  }
+
+  &__logo {
+    width: calc(100% - 60rem);
+    position: absolute;
+    bottom: 30rem;
+
+    &-img {
+      display: block;
+      width: 200rem;
+      height: 48rem;
+      position: relative;
+
+      img {
+        display: block;
+        width: auto;
+        height: 100%;
+        transition: opacity .25s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+        &.main-service__logo-img--hover {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
+  &__logo-icon {
+    width: 22rem;
+    height: 22rem;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: #FFE100;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+    .ke-guide--icon {
+      display: block;
+      width: 8rem;
+      position: relative;
+      top: 50%;
+      left: calc(50% + 1rem);
+      transform: translate3d(-50%, -50%, 0);
+
+      path {
+        stroke: #191919;
+      }
+    }
+  }
+
+  &__txt {
+    position: relative;
+    opacity: 0;
+    transition: opacity .3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+
+  &__name {
+    display: block;
+    margin-bottom: 12rem;
+    font-size: 16rem;
+    line-height: 1.65;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #fff;
+    white-space: normal;
+  }
+
+  &__description {
+    font-size: 14rem;
+    line-height: 1.85;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #ffffff;
+    color: rgba(255, 255, 255, .7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
 }
 
-.main-service__logo-icon .ke-guide--icon {
-  display: block;
-  width: 8rem;
+.ke-marquee {
+  &__items {
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 20rem;
+  }
+}
+
+// 메인 배너
+.main-banner {
+  &__cover {
+    height: 380rem;
+    position: relative;
+    background: #f8f8f8;
+    border-radius: 20rem;
+    overflow: hidden;
+
+    >.wrap {
+      height: 100%;
+    }
+  }
+
+  &__movie {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+
+  &__data {
+    height: 100%;
+    position: relative;
+
+    &-inner {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__text {
+    display: block;
+    padding-right: 280rem;
+    font-size: 38rem;
+    line-height: 1.36;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .btn__basic {
+    color: #191919;
+  }
+}
+
+// 메인 비즈니스 business
+.main-business {
+  &__head {}
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    -webkit-column-gap: 100rem;
+    -moz-column-gap: 100rem;
+    column-gap: 100rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: 16rem;
+    line-height: 1.87;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #FFB500;
+  }
+
+  &__txt {
+    margin: 10rem 0 28rem;
+    font-size: 21rem;
+    line-height: 1.52;
+    font-weight: 600;
+  }
+
+  .ke-btn__point {
+    .ke-guide--icon {
+      left: calc(50% + 1rem);
+
+      &.ke-btn__point-hover {
+        position: absolute;
+
+        svg {
+          transform: translateX(-22rem);
+        }
+      }
+    }
+
+    &:hover {
+      .ke-btn__point-circle {
+        background: #FFE100;
+      }
+
+      .ke-btn__point-hover {
+        svg {
+          transform: translateX(0);
+        }
+      }
+
+      .ke-btn__point-default {
+        svg {
+          transform: translateX(22rem);
+        }
+      }
+    }
+
+    &.ke-btn--icon-outlink {
+      .ke-btn__point-circle {
+        .ke-guide--icon {
+          width: 10rem;
+        }
+      }
+
+      .ke-btn__point-hover {
+        svg {
+          transform: translate3d(-22rem, 22rem, 0);
+        }
+      }
+
+      &:hover {
+        .ke-btn__point-hover {
+          svg {
+            transform: translateY(0);
+          }
+        }
+
+        .ke-btn__point-default {
+          svg {
+            transform: translate3d(22rem, -22rem, 0);
+          }
+        }
+      }
+    }
+  }
+}
+
+// 메인 문의 배너
+.main-inquiry-banner {
+  height: 380rem;
   position: relative;
-  top: 50%;
-  left: -webkit-calc(50% + 1rem);
-  left: calc(50% + 1rem);
-  transform: translate3d(-50%, -50%, 0);
+  background: #eee;
+  overflow: hidden;
+
+  &__background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      // left: 0;
+      right: 0;
+      // width: auto;
+      // background-image: url('../images/main-inquiry-banner-bg.jpg');
+      // background: no-repeat center right;
+      // background-size: auto 100%;
+    }
+  }
+
+  &__content {
+    height: 100%;
+    max-width: 1244rem;
+    margin: 0 auto;
+    position: relative;
+
+    &-inner {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__text {
+    display: block;
+    padding-right: 280rem;
+    font-size: 38rem;
+    line-height: 1.36;
+    font-weight: 600;
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .btn__basic {
+    border-color: #191919;
+    background-color: #191919;
+    color: #fff;
+
+    &:hover {
+      border-color: #333;
+      background-color: #333;
+      color: #fff;
+    }
+  }
 }
 
-.main-service__logo-icon .ke-guide--icon path {
-  stroke: #191919;
+// 푸터 footer
+.footer {
+  width: 100%;
+  padding: 32rem 0 118rem;
+  position: relative;
+
+  .footer__inner {
+    max-width: 1500rem;
+    margin: 0 auto;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+
+  &__extend {
+    float: right;
+    font-size: 0;
+  }
+
+  &__copyright {
+    float: left;
+    margin-top: 11rem;
+
+    p {
+      display: block;
+      font-size: 15rem;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+  }
+
+  &__menu {
+    &-wrap {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    position: relative;
+    font-size: 0;
+
+    >li {
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+
+      >a {
+        display: block;
+        padding: 7rem 16rem;
+        position: relative;
+        font-size: 14rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        line-height: 1.65;
+        color: #888;
+        transition: color .3s;
+
+        .ke-guide--icon {
+          width: 13rem;
+          position: absolute;
+          top: 50%;
+          margin-top: -3rem;
+          transition: transform cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+
+          path {
+            stroke: #888;
+            transition: stroke .3s;
+          }
+        }
+
+        &:hover {
+          color: #191919;
+
+          .ke-guide--icon path {
+            stroke: #191919;
+          }
+        }
+      }
+
+      &.privacy>a {
+        color: #000;
+      }
+
+      &:first-child>a {
+        padding-left: 0;
+      }
+
+      &:last-child>a {
+        padding-right: 0;
+      }
+
+      >ul {
+        padding: 0 19rem 0 18rem;
+        position: absolute;
+        left: 16rem;
+        bottom: -webkit-calc(100% + 7rem);
+        bottom: calc(100% + 7rem);
+        background: #fff;
+        border: 1rem solid #ddd;
+        border-radius: 4rem;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+      }
+
+      &.footer__menu--group {
+        a {
+          padding-right: 32rem;
+
+          span {
+            padding-right: 7rem;
+          }
+        }
+      }
+    }
+  }
+
+  .footer__relation {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 31rem;
+    position: relative;
+
+    &-button {
+      display: block;
+      width: 144rem;
+      padding: 6rem 42rem 7rem 17rem;
+      position: relative;
+      text-align: left;
+      background: #f4f4f4;
+      border: none;
+      border-radius: 50rem;
+      cursor: pointer;
+
+      span {
+        font-size: 12rem;
+        font-weight: 600;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        color: #888;
+        -webkit-transition: color .3s;
+        transition: color .3s;
+      }
+
+      .ke-guide--icon {
+        display: block;
+        width: 12rem;
+        height: 12rem;
+        position: absolute;
+        right: 15rem;
+        top: 50%;
+        margin-top: -6rem;
+        transform-origin: center center;
+        transition: transform cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+
+        path {
+          stroke: #777;
+          transition: stroke .3s;
+        }
+      }
+
+      &:hover {
+        span {
+          color: #191919;
+        }
+
+        .ke-guide--icon {
+          path {
+            stroke: #191919;
+          }
+        }
+      }
+    }
+
+    &-bundle {
+      display: none;
+      width: 420rem;
+      padding: 19rem 0 14rem;
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 7rem);
+      background: #fff;
+      border: 1rem solid #ddd;
+      border-radius: 4rem;
+    }
+  }
+
+  .footer__sns {
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+
+    &-wrap {
+      position: absolute;
+      top: 72rem;
+      left: -5rem;
+    }
+
+    >li {
+      display: inline-block;
+      vertical-align: middle;
+      width: 38rem;
+      height: 38rem;
+      margin: 0 3rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      >a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-size: 0;
+
+        &:hover {
+          .ke-guide--icon path {
+            fill: #191919;
+          }
+        }
+      }
+    }
+
+    .ke-guide--icon {
+      width: 32rem;
+      margin-top: -16rem;
+      position: relative;
+      top: 50%;
+
+      path {
+        fill: #888;
+        transition: fill cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+      }
+    }
+  }
+}
+
+// 글로벌 스티키 배너 global sticky banner
+.global-sticky-banner {
+  position: fixed;
+  right: 40rem;
+  bottom: 40rem;
+  z-index: 499;
+
+  &__item {
+    display: block;
+    width: 62rem;
+    height: 62rem;
+    margin: 10rem 0;
+    border-radius: 50%;
+    background: #FFE100;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .ke-guide--icon {
+      width: 36rem;
+      position: absolute;
+      top: calc(50% + 2rem);
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+
+      path {
+        fill: #000;
+      }
+    }
+  }
 }

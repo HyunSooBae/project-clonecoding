@@ -37,3 +37,15 @@ const swiper = new Swiper('.swiper', {
 // $(".swiper-button-play").click(function(){
 //   homeSwiper.autoplay.start();
 // });
+
+// 메인 뉴스 영역 mosonry 스타일 적용
+// window.onload = () => {
+//   document.querySelectorAll('.ke-list__item').forEach((item) => {
+//     item.style.gridRowEnd = `span ${item.clientHeight}`;
+//   });
+//   const wrap = document.querySelector('.main-news__list');
+//   wrap.style.display = 'grid';
+//   wrap.style.gridTemplateColumns = 'repeat(auto-fill, 562rem)';
+//   wrap.style.gridAutoRows = 'auto';
+//   wrap.style.gridColumnGap = '120rem';
+// }
