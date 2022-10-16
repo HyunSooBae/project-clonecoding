@@ -159,6 +159,15 @@ a {
       margin-top: -7rem;
     }
   }
+
+  &:hover i {
+    background: #FFE100;
+
+    &::before,
+    &::after {
+      background: #191919;
+    }
+  }
 }
 
 .ke-btn__point {
@@ -250,6 +259,9 @@ header {
   top: 0;
   left: 0;
   background-color: transparent;
+  transform: translateY(0);
+  transition: border .3s, background .4s, transform .3s ease;
+  // transition: .5s;
   z-index: 500;
 
   .header__inner {
@@ -275,6 +287,10 @@ header {
         display: block;
         width: 100%;
         height: 100%;
+
+        path {
+          fill: #fff;
+        }
       }
     }
   }
@@ -305,6 +321,7 @@ header {
           height: 74rem;
           padding: 0 40rem;
           position: relative;
+          color: #fff;
           font-size: 16rem;
           font-weight: 600;
           transition: color .3s;
@@ -342,6 +359,7 @@ header {
     position: absolute;
     right: 0;
     top: 14rem;
+    color: #fff;
     font-size: 16rem;
     line-height: 1.66;
     letter-spacing: -0.01em;
@@ -428,20 +446,116 @@ header {
       }
     }
   }
+
+  &.reveal {
+    // transform: translateY(0);
+    border-bottom: 1px solid #ddd;
+    background: #fff;
+
+    h1 {
+      a {
+        svg {
+          path {
+            fill: #191919;
+          }
+        }
+
+      }
+    }
+
+    #menu {
+      li {
+        a {
+          color: #191919;
+        }
+      }
+    }
+
+    .header__career {
+      color: #191919;
+    }
+
+  }
+
+  &.hide {
+    transform: translateY(-100%);
+  }
 }
 
-// 메인 비주얼 스와이퍼 영역 main-visual swiper-slider
+// 메인 비주얼 스와이퍼 슬라이더 영역 main-visual swiper-slider
 .swiper {
-  width: 100%;
+  // width: 100%;
   height: 100%;
+
+  button {
+    width: 50rem;
+    height: 50rem;
+    background: transparent;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 50%;
+    border-color: transparent;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #fff;
+    }
+  }
+
+  &-button-prev,
+  &-button-next {
+    position: absolute;
+    bottom: 100px;
+    color: #fff;
+
+    svg {
+      path {
+        stroke: #fff;
+      }
+    }
+  }
+
+  &-button-prev {
+    left: 45%;
+  }
+
+  &-button-next {
+    right: 45%;
+  }
 }
 
 .main-visual {
   width: 100%;
   height: 100vh;
   background-color: #333;
+  position: relative;
+  overflow: visible;
 
-  &__item {}
+  &__slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    // display: flex;
+
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   clear: both;
+    // }
+  }
+
+  &__item {
+    // float: left;
+
+    // position: absolute;
+    // left: 0;
+    // top: 0;
+    // width: 100%;
+    // height: 100%;
+  }
 
   &__bg {
     position: absolute;
@@ -451,10 +565,22 @@ header {
     right: 0;
     overflow: hidden;
 
+    width: 100vw;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(25, 25, 25, .5);
     }
   }
 
@@ -1107,18 +1233,22 @@ header {
   }
 
   &__menu {
+    position: relative;
+    font-size: 0;
+
     &-wrap {
       display: inline-block;
       vertical-align: middle;
     }
 
-    position: relative;
-    font-size: 0;
-
     >li {
       display: inline-block;
       vertical-align: top;
       position: relative;
+
+      &:first-child ul {
+        left: -1rem;
+      }
 
       >a {
         display: block;
@@ -1177,14 +1307,43 @@ header {
         opacity: 0;
         visibility: hidden;
         overflow: hidden;
+        transition: .3s;
       }
 
       &.footer__menu--group {
-        a {
+        >a {
           padding-right: 32rem;
 
           span {
             padding-right: 7rem;
+          }
+        }
+
+        ul {
+          li {
+            &:first-child {
+              padding-top: 14rem;
+            }
+
+            &:last-child {
+              padding-bottom: 14rem;
+            }
+
+            a {
+              display: block;
+              padding: 5rem 0;
+
+              span {
+                display: inline-block;
+                vertical-align: middle;
+                // position: relative;
+                font-size: 12rem;
+                font-weight: 400;
+                letter-spacing: -0.01em;
+                color: #777;
+                transform: color .3s;
+              }
+            }
           }
         }
       }
@@ -1249,7 +1408,7 @@ header {
     }
 
     &-bundle {
-      display: none;
+      // display: none;
       width: 420rem;
       padding: 19rem 0 14rem;
       position: absolute;
@@ -1258,6 +1417,41 @@ header {
       background: #fff;
       border: 1rem solid #ddd;
       border-radius: 4rem;
+      opacity: 0;
+      visibility: hidden;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    &-list {
+      >li {
+        float: left;
+        width: calc(100% / 3);
+        padding: 0 20rem;
+      }
+
+      em {
+        display: block;
+        margin-bottom: 10rem;
+        font-size: 12rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+
+      a {
+        display: block;
+        padding: 6rem 0;
+        font-size: 12rem;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: #777;
+        transition: color .3s;
+
+        >span {
+          display: inline-block;
+          position: relative;
+        }
+      }
     }
   }
 
@@ -1311,6 +1505,22 @@ header {
       path {
         fill: #888;
         transition: fill cubic-bezier(0.22, 0.61, 0.36, 1) .3s;
+      }
+    }
+  }
+
+  .footer__dropdown {
+    &.footer__dropdown--active {
+      >a>.ke-guide--icon {
+        transform: rotate(-180deg) translateY(1rem);
+      }
+
+      ul,
+      .footer__relation-bundle {
+        opacity: 1;
+        visibility: inherit;
+        // height: auto;
+        display: block;
       }
     }
   }
