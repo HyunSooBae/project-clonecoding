@@ -2,24 +2,23 @@
 
 ## 클론한 사이트
 
-- (카카오엔터프라이즈)[https://kakaoenterprise.com/] (https://kakaoenterprise.com/)
+- [카카오엔터프라이즈](https://kakaoenterprise.com/) (https://kakaoenterprise.com/)
 
 ## 클론한 코드 확인하기
 
-- (개인레포지토리로 배포한 github pages)[https://hyunsoobae.github.io/project-clonecoding/] (https://hyunsoobae.github.io/project-clonecoding/)
-
----
+- [개인레포지토리](https://github.com/hyunsooBae/project-clonecoding/tree/develop)
+- [개인레포지토리로 배포한 github pages](https://hyunsoobae.github.io/project-clonecoding/) (https://hyunsoobae.github.io/project-clonecoding/)
 
 ## 클론하면서 목표로 했던 부분
 
-- html과 css구조 살펴보기(시맨틱태그를 얼마나 사용했는지, 웹접근성이 어떻게 고려되었는지)
-- 클론 사이트의 css코드를 보고 빌드 전 scss의 상태 역으로 구성해보기
-- vanillaJS로 구현할 수 있는 기능 최대한 구현해보기(jquery사용X)
-  [] 영역별 헤더상태 바뀌기 
-  [] 이미지 자동 슬라이더(자동을 뺀 페이지네이션과 prev, next 버튼만 구현..)
-  [] 무한히 흐르는 이미지 슬라이더
-  [] 이미지 슬라이더 안에 동영상이 있는 경우 슬라이드 시간 제어
-  [] 드롭다운 메뉴
+- [ ] html과 css구조 살펴보기(시맨틱태그를 얼마나 사용했는지, 웹접근성이 어떻게 고려되었는지) <br/>
+- [x] 클론 사이트의 css코드를 보고 빌드 전 scss의 상태 역으로 구성해보기 <br/>
+- [x] jquery 사용하지않기 <br/>
+- [x] (vanillaJS)영역별 헤더상태 바뀌기 <br/>
+- [x] (vanillaJS)이미지 자동 슬라이더(자동을 뺀 페이지네이션과 prev, next 버튼만 구현..) <br/>
+- [ ] (vanillaJS)무한히 흐르는 이미지 슬라이더 <br/>
+- [ ] (vanillaJS)이미지 슬라이더 안에 동영상이 있는 경우 슬라이드 시간 제어 <br/>
+- [x] (vanillaJS)푸터 드롭다운 메뉴 <br/>
 
 ## 클론하면서 아쉬웠던 부분
 
