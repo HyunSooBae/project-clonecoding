@@ -8,17 +8,68 @@
 
 
 // 메인 비주얼 슬라이더
-const nextBtn = document.querySelector('.swiper-button-next');
-const prevBtn = document.querySelector('.swiper-button-prev');
-const slider = document.querySelector('.swiper-wrapper');
-const sliderItem = document.querySelector('.swiper-slide');
-const sliderLength = document.querySelectorAll('.swiper-slide');
-// console.log(sliderLength.length)
+let sliderImages = document.querySelectorAll(".swiper-slide"),
+  arrowLeft = document.querySelector(".swiper-button-prev"),
+  arrowRight = document.querySelector(".swiper-button-next"),
+  current = 0;
 
-nextBtn.addEventListener('click', function () {
-  // let sliderItemWidth = sliderItem.clientWidth;
-  // slider.style.left = `-${sliderItemWidth}px`;
+let currPage = document.querySelector(".swiper-pagination .current"),
+  totalPage = document.querySelector(".swiper-pagination .total");
+
+totalPage.innerText = `${sliderImages.length}`;
+// console.log(currPage);
+
+function reset() {
+  for (let i = 0; i < sliderImages.length; i++) {
+    // sliderImages[i].style.opacity = "0";
+    sliderImages[i].classList.remove('show');
+    sliderImages[i].classList.add('hide');
+  }
+}
+
+function startSlide() {
+  reset();
+  sliderImages[0].classList.remove('hide');
+  sliderImages[0].classList.add('show');
+  currPage.innerText = "1";
+}
+
+function slideLeft() {
+  reset();
+  sliderImages[current - 1].classList.remove('hide');
+  sliderImages[current - 1].classList.add('show');
+  currPage.innerText = `${current}`;
+  current -= 1;
+}
+
+function slideRight() {
+  reset();
+  sliderImages[current + 1].classList.remove('hide');
+  sliderImages[current + 1].classList.add('show');
+  current += 1;
+  currPage.innerText = `${current + 1}`;
+}
+
+arrowLeft.addEventListener("click", function () {
+  if (current === 0) {
+    current = sliderImages.length;
+  }
+  slideLeft();
 });
+
+arrowRight.addEventListener("click", function () {
+  if (current === sliderImages.length - 1) {
+    current = -1;
+  }
+  slideRight();
+});
+
+//
+// function autuPlay() {
+//    setTimeout(, 1000)
+// }
+
+startSlide();
 
 
 // 메인 비주얼 스와이퍼 슬라이더 swiper.js - 옵션
