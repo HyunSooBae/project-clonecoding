@@ -6,7 +6,7 @@
 
 ## 클론한 코드 확인하기
 
-- [개인레포지토리](https://github.com/hyunsooBae/project-clonecoding/edit/develop/)
+- [개인레포지토리](https://github.com/hyunsooBae/project-clonecoding/tree/develop)
 - [개인레포지토리로 배포한 github pages](https://hyunsoobae.github.io/project-clonecoding/) (https://hyunsoobae.github.io/project-clonecoding/)
 
 ## 클론하면서 목표로 했던 부분
