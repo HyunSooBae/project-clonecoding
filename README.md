@@ -39,4 +39,5 @@
 
 - css나 js부분에서 적절치 못한 코드를 사용한 부분이 어디인지
 - 원하는 내용을 빠르게 찾는데 유용한 검색 방법이 있을까요..?
+- 커밋 내역은 [이쪽](https://github.com/hyunsooBae/project-clonecoding/tree/develop)에서 확인하실 수 있습니다
 - 그 외 어떤 피드백이든 감사합니다!
