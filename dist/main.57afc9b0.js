@@ -184,12 +184,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/main.scss":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"static/src/scss/main.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\fonts\\KakaoBig.woff2":[["KakaoBig.0897143f.woff2","src/fonts/KakaoBig.woff2"],"src/fonts/KakaoBig.woff2"],"./..\\fonts\\KakaoBig.woff":[["KakaoBig.8a834a0f.woff","src/fonts/KakaoBig.woff"],"src/fonts/KakaoBig.woff"],"./..\\fonts\\KakaoBig-Bold.woff2":[["KakaoBig-Bold.3052c45b.woff2","src/fonts/KakaoBig-Bold.woff2"],"src/fonts/KakaoBig-Bold.woff2"],"./..\\fonts\\KakaoBig-Bold.woff":[["KakaoBig-Bold.089298c1.woff","src/fonts/KakaoBig-Bold.woff"],"src/fonts/KakaoBig-Bold.woff"],"./..\\fonts\\Gilroy-Medium.woff2":[["Gilroy-Medium.8e7ed7eb.woff2","src/fonts/Gilroy-Medium.woff2"],"src/fonts/Gilroy-Medium.woff2"],"./..\\fonts\\Gilroy-SemiBold.woff2":[["Gilroy-SemiBold.731f01d3.woff2","src/fonts/Gilroy-SemiBold.woff2"],"src/fonts/Gilroy-SemiBold.woff2"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./..\\fonts\\KakaoBig.woff2":[["KakaoBig.528e0cb5.woff2","static/src/fonts/KakaoBig.woff2"],"static/src/fonts/KakaoBig.woff2"],"./..\\fonts\\KakaoBig.woff":[["KakaoBig.6d91636d.woff","static/src/fonts/KakaoBig.woff"],"static/src/fonts/KakaoBig.woff"],"./..\\fonts\\KakaoBig-Bold.woff2":[["KakaoBig-Bold.ae298247.woff2","static/src/fonts/KakaoBig-Bold.woff2"],"static/src/fonts/KakaoBig-Bold.woff2"],"./..\\fonts\\KakaoBig-Bold.woff":[["KakaoBig-Bold.85ad04a3.woff","static/src/fonts/KakaoBig-Bold.woff"],"static/src/fonts/KakaoBig-Bold.woff"],"./..\\fonts\\Gilroy-Medium.woff2":[["Gilroy-Medium.b4cf6813.woff2","static/src/fonts/Gilroy-Medium.woff2"],"static/src/fonts/Gilroy-Medium.woff2"],"./..\\fonts\\Gilroy-SemiBold.woff2":[["Gilroy-SemiBold.37840b92.woff2","static/src/fonts/Gilroy-SemiBold.woff2"],"static/src/fonts/Gilroy-SemiBold.woff2"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59439" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53994" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -394,4 +394,4 @@ function hmrAcceptRun(bundle, id) {
   }
 }
 },{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/main.d9ee62f6.js.map
+//# sourceMappingURL=/main.57afc9b0.js.map

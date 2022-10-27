@@ -1,20 +1,21 @@
 // main
 // 메인 비주얼 슬라이더
-let sliderImages = document.querySelectorAll(".swiper-slide"),
-  arrowLeft = document.querySelector(".swiper-button-prev"),
-  arrowRight = document.querySelector(".swiper-button-next"),
-  current = 0;
+let sliderImages = document.querySelectorAll(".swiper-slide");
+const arrowLeft = document.querySelector(".swiper-button-prev");
+const arrowRight = document.querySelector(".swiper-button-next");
+let current = 0;
 
-let currPage = document.querySelector(".swiper-pagination .current"),
-  totalPage = document.querySelector(".swiper-pagination .total");
+let currPage = document.querySelector(".swiper-pagination .current");
+let totalPage = document.querySelector(".swiper-pagination .total");
 
 totalPage.innerText = `${sliderImages.length}`;
 
 function reset() {
-  for (let i = 0; i < sliderImages.length; i++) {
-    sliderImages[i].classList.remove('show');
-    sliderImages[i].classList.add('hide');
-  }
+  sliderImages.forEach((image) => {
+    image.classList.remove('show');
+    image.classList.add('hide');
+
+  });
 }
 
 function startSlide() {
@@ -125,12 +126,11 @@ atagHover.forEach((aTag) => {
 // 푸터 드롭다운 메뉴 펼치기
 const footerDropdown = document.querySelectorAll('.footer__dropdown > a, .footer__dropdown button');
 
-for (let i = 0; i < footerDropdown.length; i += 1) {
-  footerDropdown[i].addEventListener('click', function () {
-    const dropdownParent = this.parentElement;
-    const dropdownChild = this.nextElementSibling;
+footerDropdown.forEach((item) => {
+  item.addEventListener('click', function () {
+    const dropdownParent = item.parentElement;
+    const dropdownChild = item.nextElementSibling;
     dropdownParent.classList.toggle('footer__dropdown--active');
     dropdownChild.style.height = "${dropdownChild.offsetHeight}";
-  });
-
-}
+  })
+})

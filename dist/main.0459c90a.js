@@ -117,13 +117,8 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"aRYt":[function(require,module,exports) {
-// console.log('Hello~')
-// async function test() {
-//   const promise = Promise.resolve(123)
-//   console.log(await promise)
-// }
-// test()
+})({"yUAd":[function(require,module,exports) {
+// main
 // 메인 비주얼 슬라이더
 var sliderImages = document.querySelectorAll(".swiper-slide"),
     arrowLeft = document.querySelector(".swiper-button-prev"),
@@ -131,11 +126,10 @@ var sliderImages = document.querySelectorAll(".swiper-slide"),
     current = 0;
 var currPage = document.querySelector(".swiper-pagination .current"),
     totalPage = document.querySelector(".swiper-pagination .total");
-totalPage.innerText = "".concat(sliderImages.length); // console.log(currPage);
+totalPage.innerText = "".concat(sliderImages.length);
 
 function reset() {
   for (var i = 0; i < sliderImages.length; i++) {
-    // sliderImages[i].style.opacity = "0";
     sliderImages[i].classList.remove('show');
     sliderImages[i].classList.add('hide');
   }
@@ -177,39 +171,8 @@ arrowRight.addEventListener("click", function () {
   }
 
   slideRight();
-}); //
-// function autuPlay() {
-//    setTimeout(, 1000)
-// }
-
-startSlide(); // 메인 비주얼 스와이퍼 슬라이더 swiper.js - 옵션
-// const swiper = new Swiper('.swiper', {
-// Optional parameters
-// direction: 'vertical',
-// loop: true,
-// pagination: {
-//   el: '.swiper-pagination',
-// type: 'fraction',
-// clickable: false,
-//   renderBullet: function (index, className) {
-//     return '<span class="' + className + '">' + (index + 1) + "</span>";
-//   },
-// },
-// navigation: {
-//   nextEl: '.swiper-button-next',
-//   prevEl: '.swiper-button-prev',
-// },
-// autoplay: {
-//   delay: 3000,
-// },
-// });
-// 메인 비주얼 스와이퍼 슬라이더 - 재생 일시정지 버튼
-// $(".swiper-button-pause").click(function(){
-//   homeSwiper.autoplay.stop();
-// });
-// $(".swiper-button-play").click(function(){
-//   homeSwiper.autoplay.start();
-// });
+});
+startSlide(); // main
 // 메인 뉴스 영역 mosonry 스타일 적용
 
 window.onload = function () {
@@ -221,20 +184,8 @@ window.onload = function () {
   wrap.style.gridTemplateColumns = 'repeat(auto-fill, 562rem)';
   wrap.style.gridAutoRows = 'auto';
   wrap.style.gridColumnGap = '120rem';
-}; // 푸터 드롭다운 메뉴 펼치기
-
-
-var footerDropdown = document.querySelectorAll('.footer__dropdown > a, .footer__dropdown button');
-
-for (var i = 0; i < footerDropdown.length; i += 1) {
-  footerDropdown[i].addEventListener('click', function () {
-    var dropdownParent = this.parentElement;
-    var dropdownChild = this.nextElementSibling;
-    dropdownParent.classList.toggle('footer__dropdown--active');
-    dropdownChild.style.height = "${dropdownChild.offsetHeight}";
-    console.log(dropdownChild.offsetHeight);
-  });
-} // 페이지 스크롤시 헤더 메뉴 숨기고 보이는 이벤트
+}; // header
+// 페이지 스크롤시 헤더 메뉴 숨기고 보이는 이벤트
 
 
 var HEADER = document.querySelector('header');
@@ -261,7 +212,8 @@ function scrollEvent_header() {
   prevScrollTop = currentScrollTop;
 }
 
-; // 헤더 메뉴에 hover 했을때 헤더 스타일 바꾸기 (reveal 클래스 추가)
+; // header
+// 헤더 메뉴에 hover 했을때 헤더 스타일 바꾸기 (reveal 클래스 추가)
 
 var atagHover = HEADER.querySelectorAll('nav a');
 atagHover.forEach(function (aTag) {
@@ -275,6 +227,18 @@ atagHover.forEach(function (aTag) {
       HEADER.classList.remove('reveal');
     }
   });
-});
-},{}]},{},["aRYt"], null)
-//# sourceMappingURL=main.5f25893d.js.map
+}); // footer
+// 푸터 드롭다운 메뉴 펼치기
+
+var footerDropdown = document.querySelectorAll('.footer__dropdown > a, .footer__dropdown button');
+
+for (var i = 0; i < footerDropdown.length; i += 1) {
+  footerDropdown[i].addEventListener('click', function () {
+    var dropdownParent = this.parentElement;
+    var dropdownChild = this.nextElementSibling;
+    dropdownParent.classList.toggle('footer__dropdown--active');
+    dropdownChild.style.height = "${dropdownChild.offsetHeight}";
+  });
+}
+},{}]},{},["yUAd"], null)
+//# sourceMappingURL=main.0459c90a.js.map
