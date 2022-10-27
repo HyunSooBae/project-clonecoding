@@ -719,11 +719,15 @@ header {
 
     .ke-list {
       &__item {
-        // display: inline-block;
+        display: inline-block;
         width: 562rem;
         padding-top: 72rem;
         margin-bottom: 70rem;
         border-top: 1rem solid #eee;
+
+        position: absolute;
+        left: 0;
+        top: 0;
 
         &:nth-child(1),
         &:nth-child(2) {

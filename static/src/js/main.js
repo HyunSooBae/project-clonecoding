@@ -59,16 +59,59 @@ startSlide();
 
 // main
 // 메인 뉴스 영역 mosonry 스타일 적용
-window.onload = () => {
-  document.querySelectorAll('.ke-list__item').forEach((item) => {
-    item.style.gridRowEnd = `span ${item.clientHeight}`;
-  });
-  const wrap = document.querySelector('.main-news__list');
-  wrap.style.display = 'grid';
-  wrap.style.gridTemplateColumns = 'repeat(auto-fill, 562rem)';
-  wrap.style.gridAutoRows = 'auto';
-  wrap.style.gridColumnGap = '120rem';
+// window.onload = () => {
+//   document.querySelectorAll('.ke-list__item').forEach((item) => {
+//     item.style.gridRowEnd = `span ${item.clientHeight}`;
+//   });
+//   const wrap = document.querySelector('.main-news__list');
+//   wrap.style.display = 'grid';
+//   wrap.style.gridTemplateColumns = 'repeat(auto-fill, 562rem)';
+//   wrap.style.gridAutoRows = 'auto';
+//   wrap.style.gridColumnGap = '120rem';
+// }
+
+// 2022.10.27 1차과제 - 1차 리뷰 후 추가
+document.addEventListener('DOMContentLoaded', function () {
+  masonry_layout();
+});
+
+window.addEventListener('resize', function () {
+  masonry_layout();
+});
+
+function masonry_layout() {
+  const masonry = document.querySelectorAll('.main-news__list');
+  // console.log(masonry);
+  if (!masonry) return !1;
+
+  masonry.forEach(function (el) {
+    let imgMove = [0, 0];
+    const leftWidth = 562;
+    // console.log(el);
+
+    const item = el.getElementsByClassName('ke-list__item');
+    // console.log(item);
+    for (let i = 0; i < item.length; i += 1) {
+      const min = imgMove.indexOf(Math.min.apply(0, imgMove));
+      console.log(item[i].offsetHeight);
+      const x = leftWidth * min;
+      // console.log(item[i]);
+      const itemHeight = item[i].offsetHeight;
+      // console.log(itemHeight);
+      const y = imgMove[min];
+      // console.log(y)
+      imgMove[min] += itemHeight;
+      item[i].setAttribute('style', `left:${x}px; top:${y}px`)
+    }
+
+    const imgMax = Math.max.apply(0, imgMove);
+    // console.log(imgMax)
+    el.setAttribute('style', `height: ${imgMax}px`);
+
+  })
 }
+
+
 
 // header
 // 페이지 스크롤시 헤더 메뉴 숨기고 보이는 이벤트
