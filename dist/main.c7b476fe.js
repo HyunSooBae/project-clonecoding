@@ -120,19 +120,19 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"yUAd":[function(require,module,exports) {
 // main
 // 메인 비주얼 슬라이더
-var sliderImages = document.querySelectorAll(".swiper-slide"),
-    arrowLeft = document.querySelector(".swiper-button-prev"),
-    arrowRight = document.querySelector(".swiper-button-next"),
-    current = 0;
-var currPage = document.querySelector(".swiper-pagination .current"),
-    totalPage = document.querySelector(".swiper-pagination .total");
+var sliderImages = document.querySelectorAll(".swiper-slide");
+var arrowLeft = document.querySelector(".swiper-button-prev");
+var arrowRight = document.querySelector(".swiper-button-next");
+var current = 0;
+var currPage = document.querySelector(".swiper-pagination .current");
+var totalPage = document.querySelector(".swiper-pagination .total");
 totalPage.innerText = "".concat(sliderImages.length);
 
 function reset() {
-  for (var i = 0; i < sliderImages.length; i++) {
-    sliderImages[i].classList.remove('show');
-    sliderImages[i].classList.add('hide');
-  }
+  sliderImages.forEach(function (image) {
+    image.classList.remove('show');
+    image.classList.add('hide');
+  });
 }
 
 function startSlide() {
@@ -231,14 +231,13 @@ atagHover.forEach(function (aTag) {
 // 푸터 드롭다운 메뉴 펼치기
 
 var footerDropdown = document.querySelectorAll('.footer__dropdown > a, .footer__dropdown button');
-
-for (var i = 0; i < footerDropdown.length; i += 1) {
-  footerDropdown[i].addEventListener('click', function () {
-    var dropdownParent = this.parentElement;
-    var dropdownChild = this.nextElementSibling;
+footerDropdown.forEach(function (item) {
+  item.addEventListener('click', function () {
+    var dropdownParent = item.parentElement;
+    var dropdownChild = item.nextElementSibling;
     dropdownParent.classList.toggle('footer__dropdown--active');
     dropdownChild.style.height = "${dropdownChild.offsetHeight}";
   });
-}
+});
 },{}]},{},["yUAd"], null)
-//# sourceMappingURL=main.0459c90a.js.map
+//# sourceMappingURL=main.c7b476fe.js.map
