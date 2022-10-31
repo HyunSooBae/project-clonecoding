@@ -11,7 +11,74 @@
 /* **************************************** *
  * RESET FILES
  * **************************************** */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, time, figure, article, nav, header, footer, hgroup, video, audio, aside, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+time,
+figure,
+article,
+nav,
+header,
+footer,
+hgroup,
+video,
+audio,
+aside,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
   margin: 0;
   padding: 0;
   border: 0;
@@ -22,7 +89,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, time, 
   box-sizing: border-box;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -31,12 +99,23 @@ table {
   border-spacing: 0;
 }
 
-caption, th, td {
+caption,
+th,
+td {
   text-align: left;
   font-weight: normal;
 }
 
-figure, article, header, footer, nav, hgroup, video, audio, aside, main {
+figure,
+article,
+header,
+footer,
+nav,
+hgroup,
+video,
+audio,
+aside,
+main {
   display: block;
 }
 
@@ -48,7 +127,10 @@ html {
   text-size-adjust: none;
 }
 
-body, textarea:focus, input:focus, a:focus {
+body,
+textarea:focus,
+input:focus,
+a:focus {
   -webkit-tap-highlight-color: rgba(50, 65, 140, 0.08);
 }
 
@@ -93,7 +175,9 @@ textarea {
   font-family: sans-serif;
 }
 
-input[type=submit], input[type=button], button {
+input[type=submit],
+input[type=button],
+button {
   -webkit-appearance: none;
   font-family: "KakaoBig", sans-serif;
   border-radius: 0rem;
@@ -122,15 +206,18 @@ input[type=radio] {
   color: #aaa;
 }
 
-input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-input:focus::-moz-placeholder, textarea:focus::-moz-placeholder {
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder {
   color: transparent;
 }
 
-input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
+input:focus:-ms-input-placeholder,
+textarea:focus:-ms-input-placeholder {
   color: transparent;
 }
 
@@ -185,12 +272,12 @@ ul#wp-admin-bar-root-default {
 @font-face {
   font-family: "KakaoBig";
   font-weight: 400;
-  src: url("KakaoBig.d279d0a9.woff2") format("woff2"), url("KakaoBig.afa34db7.woff") format("woff");
+  src: url("/KakaoBig.25fceaf9.woff2") format("woff2"), url("/KakaoBig.1f146b88.woff") format("woff");
 }
 @font-face {
   font-family: "KakaoBig";
   font-weight: 600;
-  src: url("KakaoBig-Bold.327968c3.woff2") format("woff2"), url("KakaoBig-Bold.37bb9dca.woff") format("woff");
+  src: url("/KakaoBig-Bold.19e55a96.woff2") format("woff2"), url("/KakaoBig-Bold.1143b3fc.woff") format("woff");
 }
 /* ************************************** *
  * Gilroy
@@ -199,13 +286,13 @@ ul#wp-admin-bar-root-default {
   font-family: "gilroy";
   font-style: normal;
   font-weight: 400;
-  src: url("Gilroy-Medium.0b47ce7a.woff2") format("woff2");
+  src: url("/Gilroy-Medium.96d76b19.woff2") format("woff2");
 }
 @font-face {
   font-family: "gilroy";
   font-style: normal;
   font-weight: 600;
-  src: url("Gilroy-SemiBold.3e6cabf4.woff2") format("woff2");
+  src: url("/Gilroy-SemiBold.c3b0e233.woff2") format("woff2");
 }
 .sr-only {
   position: absolute;
@@ -837,10 +924,14 @@ header.hide {
   left: 222rem;
 }
 .main-news__list .ke-list__item {
+  display: inline-block;
   width: 562rem;
   padding-top: 72rem;
   margin-bottom: 70rem;
   border-top: 1rem solid #eee;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .main-news__list .ke-list__item:nth-child(1), .main-news__list .ke-list__item:nth-child(2) {
   padding-top: 0;
@@ -1628,4 +1719,4 @@ header.hide {
   fill: #000;
 }
 
-/*# sourceMappingURL=main.9ddb7752.css.map */
+/*# sourceMappingURL=/main.d9ee62f6.css.map */

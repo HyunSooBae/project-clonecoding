@@ -71,12 +71,19 @@ startSlide();
 // }
 
 // 2022.10.27 1차과제 - 1차 리뷰 후 추가
-document.addEventListener('DOMContentLoaded', function () {
-  masonry_layout();
+window.addEventListener('load', async function () {
+  const elem = document.querySelector('.main-news__list');
+  new Masonry(elem, {
+    // options
+    itemSelector: '.ke-list__item',
+    columnWidth: 562,
+    gutter: 120
+  });
+
 });
 
 window.addEventListener('resize', function () {
-  masonry_layout();
+
 });
 
 function masonry_layout() {

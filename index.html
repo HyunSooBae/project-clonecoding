@@ -7,11 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>클론 코딩 - 카카오엔터프라이즈</title>
 
-  <link rel="stylesheet" href="./static/src/scss/main.scss">
+  <link rel="stylesheet" href="./src/scss/main.scss">
   <link rel="icon" href="./static/favicon.ico">
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-  <script defer src="./static/src/js/main.js"></script>
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script type="module" defer src="./src/main.js"></script>
 </head>
 
 <body>
@@ -147,7 +148,7 @@
         <!-- .main-visual__item -->
         <div class="main-visual__item swiper-slide">
           <div class="main-visual__bg">
-            <img src="./static/src/images/main-visual-220925.jpg" alt="slide01 background">
+            <img src="./src/assets/images/main-visual-220925.jpg" alt="slide01 background">
           </div>
           <div class="main-visual__content">
             <div class="wrap-middle">
@@ -164,7 +165,7 @@
         <!-- // .main-visual__item -->
         <div class="main-visual__item swiper-slide">
           <div class="main-visual__bg">
-            <img src="./static/src/images/main-visual-220926.jpg" alt="slide02 background">
+            <img src="./src/assets/images/main-visual-220926.jpg" alt="slide02 background">
           </div>
           <div class="main-visual__content">
             <div class="wrap-middle">
@@ -180,7 +181,7 @@
         </div>
         <div class="main-visual__item swiper-slide">
           <div class="main-visual__bg">
-            <img src="./static/src/images/main-visual-220927.jpg" alt="slide03 background">
+            <img src="./src/assets/images/main-visual-220927.jpg" alt="slide03 background">
           </div>
           <div class="main-visual__content">
             <div class="wrap-middle">
@@ -224,10 +225,10 @@
         <div class="main-news__scope">
           <!-- 뉴스기사 영역 타이틀 -->
           <div class="main-news__title">
-            <img src="./static/src/images/news-typo-connect.svg" alt="Connect.">
-            <img src="./static/src/images/news-typo-solve.svg" alt="Solve.">
-            <img src="./static/src/images/news-typo-create.svg" alt="Create.">
-            <img src="./static/src/images/news-typo-ai.svg" alt="+AI">
+            <img src="./src/assets/images/news-typo-connect.svg" alt="Connect.">
+            <img src="./src/assets/images/news-typo-solve.svg" alt="Solve.">
+            <img src="./src/assets/images/news-typo-create.svg" alt="Create.">
+            <img src="./src/assets/images/news-typo-ai.svg" alt="+AI">
           </div>
           <div class="main-news__content">
             <div class="main-news__list">
@@ -237,7 +238,7 @@
                 <!-- 뉴스기사 카테고리 -->
                 <div class="data__meta">
                   <a href="javascript:void(0)"><span>보도자료</span></a>
-                  <img src="./static/src/images/icon-new.png" alt="NEW">
+                  <img src="./src/assets/images/icon-new.png" alt="NEW">
                 </div>
 
                 <!-- 뉴스기사 본문(링크) -->
@@ -250,7 +251,7 @@
                   </h3>
                   <div class="ke-list__thumb">
                     <figure>
-                      <img src="./static/src/images/figure-01.jpg" alt="kakao i Laas">
+                      <img src="./src/assets/images/figure-01.jpg" alt="kakao i Laas">
                     </figure>
                   </div>
                 </a>
@@ -270,7 +271,7 @@
                 <!-- 뉴스기사 카테고리 -->
                 <div class="data__meta">
                   <a href="javascript:void(0)"><span>보도자료</span></a>
-                  <img src="./static/src/images/icon-new.png" alt="NEW">
+                  <img src="./src/assets/images/icon-new.png" alt="NEW">
                 </div>
 
                 <!-- 뉴스기사 본문(링크) -->
@@ -283,7 +284,7 @@
                   </h3>
                   <div class="ke-list__thumb">
                     <figure>
-                      <img src="./static/src/images/figure-02.jpg" alt="kakaoenterprise">
+                      <img src="./src/assets/images/figure-02.jpg" alt="kakaoenterprise">
                     </figure>
                   </div>
                 </a>
@@ -303,7 +304,7 @@
                 <!-- 뉴스기사 카테고리 -->
                 <div class="data__meta">
                   <a href="javascript:void(0)"><span>보도자료</span></a>
-                  <img src="./static/src/images/icon-new.png" alt="NEW">
+                  <img src="./src/assets/images/icon-new.png" alt="NEW">
                 </div>
 
                 <!-- 뉴스기사 본문(링크) -->
@@ -316,7 +317,7 @@
                   </h3>
                   <div class="ke-list__thumb">
                     <figure>
-                      <img src="./static/src/images/figure-03.jpg" alt="kakao i Laas">
+                      <img src="./src/assets/images/figure-03.jpg" alt="kakao i Laas">
                     </figure>
                   </div>
                 </a>
@@ -336,7 +337,7 @@
                 <!-- 뉴스기사 카테고리 -->
                 <div class="data__meta">
                   <a href="javascript:void(0)"><span>보도자료</span></a>
-                  <img src="./static/src/images/icon-new.png" alt="NEW">
+                  <img src="./src/assets/images/icon-new.png" alt="NEW">
                 </div>
 
                 <!-- 뉴스기사 본문(링크) -->
@@ -349,7 +350,7 @@
                   </h3>
                   <div class="ke-list__thumb">
                     <figure>
-                      <img src="./static/src/images/figure-04.jpg" alt="상생 부스트업 프로젝트 RE:BORN">
+                      <img src="./src/assets/images/figure-04.jpg" alt="상생 부스트업 프로젝트 RE:BORN">
                     </figure>
                   </div>
                 </a>
@@ -369,7 +370,7 @@
                 <!-- 뉴스기사 카테고리 -->
                 <div class="data__meta">
                   <a href="javascript:void(0)"><span>보도자료</span></a>
-                  <img src="./static/src/images/icon-new.png" alt="NEW">
+                  <img src="./src/assets/images/icon-new.png" alt="NEW">
                 </div>
 
                 <!-- 뉴스기사 본문(링크) -->
@@ -382,7 +383,7 @@
                   </h3>
                   <div class="ke-list__thumb">
                     <figure>
-                      <img src="./static/src/images/figure-05.jpg" alt="카카오 i 클라우드 테크톡 웨비나">
+                      <img src="./src/assets/images/figure-05.jpg" alt="카카오 i 클라우드 테크톡 웨비나">
                     </figure>
                   </div>
                 </a>
@@ -428,7 +429,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -466,7 +467,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -504,7 +505,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -542,7 +543,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -580,7 +581,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -618,7 +619,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -656,7 +657,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -694,7 +695,7 @@
               <a href="javascript:void(0)" class="main-service__link">
                 <div class="main-service__thumb">
                   <figure>
-                    <img src="./static/src/images/main-service__img-01.gif" alt="카카오 말풍선">
+                    <img src="./src/assets/images/main-service__img-01.gif" alt="카카오 말풍선">
                   </figure>
                 </div>
                 <div class="main-service__message">
@@ -745,7 +746,7 @@
     <section class="main-banner main-section">
       <div class="wrap-wide">
         <div class="main-banner__cover">
-          <img src="./static/src/images/main-banner__cover.png" alt="카카오 라이언" class="main-banner__movie">
+          <img src="./src/assets/images/main-banner__cover.png" alt="카카오 라이언" class="main-banner__movie">
           <div class="wrap">
             <div class="main-banner__data">
               <div class="main-banner__data-inner">
@@ -856,7 +857,7 @@
     <!-- .main-inquiry-banner -->
     <section class="main-inquiry-banner">
       <div class="main-inquiry-banner__background">
-        <img src="./static/src/images/main-inquiry-banner-bg.jpg" alt="background">
+        <img src="./src/assets/images/main-inquiry-banner-bg.jpg" alt="background">
       </div>
 
       <div class="main-inquiry-banner__content">

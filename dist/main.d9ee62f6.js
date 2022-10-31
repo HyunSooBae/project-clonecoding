@@ -117,165 +117,79 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"static/src/js/main.js":[function(require,module,exports) {
-// main
-// 메인 비주얼 슬라이더
-var sliderImages = document.querySelectorAll(".swiper-slide");
-var arrowLeft = document.querySelector(".swiper-button-prev");
-var arrowRight = document.querySelector(".swiper-button-next");
-var current = 0;
-var currPage = document.querySelector(".swiper-pagination .current");
-var totalPage = document.querySelector(".swiper-pagination .total");
-totalPage.innerText = "".concat(sliderImages.length);
+})({"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+var bundleURL = null;
 
-function reset() {
-  sliderImages.forEach(function (image) {
-    image.classList.remove('show');
-    image.classList.add('hide');
-  });
-}
-
-function startSlide() {
-  reset();
-  sliderImages[0].classList.remove('hide');
-  sliderImages[0].classList.add('show');
-  currPage.innerText = "1";
-}
-
-function slideLeft() {
-  reset();
-  sliderImages[current - 1].classList.remove('hide');
-  sliderImages[current - 1].classList.add('show');
-  currPage.innerText = "".concat(current);
-  current -= 1;
-}
-
-function slideRight() {
-  reset();
-  sliderImages[current + 1].classList.remove('hide');
-  sliderImages[current + 1].classList.add('show');
-  current += 1;
-  currPage.innerText = "".concat(current + 1);
-}
-
-arrowLeft.addEventListener("click", function () {
-  if (current === 0) {
-    current = sliderImages.length;
+function getBundleURLCached() {
+  if (!bundleURL) {
+    bundleURL = getBundleURL();
   }
 
-  slideLeft();
-});
-arrowRight.addEventListener("click", function () {
-  if (current === sliderImages.length - 1) {
-    current = -1;
+  return bundleURL;
+}
+
+function getBundleURL() {
+  // Attempt to find the URL of the current script and use that as the base URL
+  try {
+    throw new Error();
+  } catch (err) {
+    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
+
+    if (matches) {
+      return getBaseURL(matches[0]);
+    }
   }
 
-  slideRight();
-});
-startSlide(); // main
-// 메인 뉴스 영역 mosonry 스타일 적용
-// window.onload = () => {
-//   document.querySelectorAll('.ke-list__item').forEach((item) => {
-//     item.style.gridRowEnd = `span ${item.clientHeight}`;
-//   });
-//   const wrap = document.querySelector('.main-news__list');
-//   wrap.style.display = 'grid';
-//   wrap.style.gridTemplateColumns = 'repeat(auto-fill, 562rem)';
-//   wrap.style.gridAutoRows = 'auto';
-//   wrap.style.gridColumnGap = '120rem';
-// }
-// 2022.10.27 1차과제 - 1차 리뷰 후 추가
+  return '/';
+}
 
-document.addEventListener('DOMContentLoaded', function () {
-  masonry_layout();
-});
-window.addEventListener('resize', function () {
-  masonry_layout();
-});
+function getBaseURL(url) {
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+}
 
-function masonry_layout() {
-  var masonry = document.querySelectorAll('.main-news__list'); // console.log(masonry);
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+var bundle = require('./bundle-url');
 
-  if (!masonry) return !1;
-  masonry.forEach(function (el) {
-    var imgMove = [0, 0];
-    var leftWidth = 562; // console.log(el);
+function updateLink(link) {
+  var newLink = link.cloneNode();
 
-    var item = el.getElementsByClassName('ke-list__item'); // console.log(item);
+  newLink.onload = function () {
+    link.remove();
+  };
 
-    for (var i = 0; i < item.length; i += 1) {
-      var min = imgMove.indexOf(Math.min.apply(0, imgMove));
-      console.log(item[i].offsetHeight);
-      var x = leftWidth * min; // console.log(item[i]);
+  newLink.href = link.href.split('?')[0] + '?' + Date.now();
+  link.parentNode.insertBefore(newLink, link.nextSibling);
+}
 
-      var itemHeight = item[i].offsetHeight; // console.log(itemHeight);
+var cssTimeout = null;
 
-      var y = imgMove[min]; // console.log(y)
+function reloadCSS() {
+  if (cssTimeout) {
+    return;
+  }
 
-      imgMove[min] += itemHeight;
-      item[i].setAttribute('style', "left:".concat(x, "px; top:").concat(y, "px"));
+  cssTimeout = setTimeout(function () {
+    var links = document.querySelectorAll('link[rel="stylesheet"]');
+
+    for (var i = 0; i < links.length; i++) {
+      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
+        updateLink(links[i]);
+      }
     }
 
-    var imgMax = Math.max.apply(0, imgMove); // console.log(imgMax)
-
-    el.setAttribute('style', "height: ".concat(imgMax, "px"));
-  });
-} // header
-// 페이지 스크롤시 헤더 메뉴 숨기고 보이는 이벤트
-
-
-var HEADER = document.querySelector('header');
-var MAIN_VISUAL = document.querySelector('.main-visual');
-var prevScrollTop;
-
-window.onscroll = function () {
-  scrollEvent_header();
-};
-
-function scrollEvent_header() {
-  var currentScrollTop = document.documentElement.scrollTop;
-
-  if (HEADER.clientHeight < currentScrollTop && currentScrollTop < MAIN_VISUAL.clientHeight || MAIN_VISUAL.clientHeight < currentScrollTop && prevScrollTop > currentScrollTop) {
-    HEADER.classList.add('reveal');
-    HEADER.classList.remove('hide');
-  } else if (HEADER.clientHeight > currentScrollTop) {
-    HEADER.classList.remove('reveal');
-  } else if (HEADER.clientHeight > currentScrollTop || MAIN_VISUAL.clientHeight < currentScrollTop && prevScrollTop < currentScrollTop) {
-    HEADER.classList.remove('reveal');
-    HEADER.classList.add('hide');
-  }
-
-  prevScrollTop = currentScrollTop;
+    cssTimeout = null;
+  }, 50);
 }
 
-; // header
-// 헤더 메뉴에 hover 했을때 헤더 스타일 바꾸기 (reveal 클래스 추가)
+module.exports = reloadCSS;
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/scss/main.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
 
-var atagHover = HEADER.querySelectorAll('nav a');
-atagHover.forEach(function (aTag) {
-  aTag.addEventListener('mouseover', function () {
-    HEADER.classList.add('reveal');
-  });
-  aTag.addEventListener('mouseout', function () {
-    var currentScrollTop = document.documentElement.scrollTop;
-
-    if (HEADER.clientHeight > currentScrollTop) {
-      HEADER.classList.remove('reveal');
-    }
-  });
-}); // footer
-// 푸터 드롭다운 메뉴 펼치기
-
-var footerDropdown = document.querySelectorAll('.footer__dropdown > a, .footer__dropdown button');
-footerDropdown.forEach(function (item) {
-  item.addEventListener('click', function () {
-    var dropdownParent = item.parentElement;
-    var dropdownChild = item.nextElementSibling;
-    dropdownParent.classList.toggle('footer__dropdown--active');
-    dropdownChild.style.height = "${dropdownChild.offsetHeight}";
-  });
-});
-},{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"./..\\assets\\fonts\\KakaoBig.woff2":[["KakaoBig.25fceaf9.woff2","src/assets/fonts/KakaoBig.woff2"],"src/assets/fonts/KakaoBig.woff2"],"./..\\assets\\fonts\\KakaoBig.woff":[["KakaoBig.1f146b88.woff","src/assets/fonts/KakaoBig.woff"],"src/assets/fonts/KakaoBig.woff"],"./..\\assets\\fonts\\KakaoBig-Bold.woff2":[["KakaoBig-Bold.19e55a96.woff2","src/assets/fonts/KakaoBig-Bold.woff2"],"src/assets/fonts/KakaoBig-Bold.woff2"],"./..\\assets\\fonts\\KakaoBig-Bold.woff":[["KakaoBig-Bold.1143b3fc.woff","src/assets/fonts/KakaoBig-Bold.woff"],"src/assets/fonts/KakaoBig-Bold.woff"],"./..\\assets\\fonts\\Gilroy-Medium.woff2":[["Gilroy-Medium.96d76b19.woff2","src/assets/fonts/Gilroy-Medium.woff2"],"src/assets/fonts/Gilroy-Medium.woff2"],"./..\\assets\\fonts\\Gilroy-SemiBold.woff2":[["Gilroy-SemiBold.c3b0e233.woff2","src/assets/fonts/Gilroy-SemiBold.woff2"],"src/assets/fonts/Gilroy-SemiBold.woff2"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -303,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64935" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61342" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -479,5 +393,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","static/src/js/main.js"], null)
-//# sourceMappingURL=/main.85183d77.js.map
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
+//# sourceMappingURL=/main.d9ee62f6.js.map

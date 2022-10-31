@@ -30,7 +30,7 @@
     "sass": "^1.55.0"
   },
   "staticFiles": {
-    "staticPath": "src/static"
+    "staticPath": "./static"
   },
   "browserslist": [
     "> 1%",
