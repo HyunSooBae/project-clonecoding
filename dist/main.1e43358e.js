@@ -549,8 +549,50 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// main
+// header
+// 페이지 스크롤시 헤더 메뉴 숨기고 보이는 이벤트
+var HEADER = document.querySelector('header');
+var MAIN_VISUAL = document.querySelector('.main-visual');
+var prevScrollTop;
+
+window.onscroll = function () {
+  scrollEvent_header();
+};
+
+function scrollEvent_header() {
+  var currentScrollTop = document.documentElement.scrollTop;
+
+  if (HEADER.clientHeight < currentScrollTop && currentScrollTop < MAIN_VISUAL.clientHeight || MAIN_VISUAL.clientHeight < currentScrollTop && prevScrollTop > currentScrollTop) {
+    HEADER.classList.add('reveal');
+    HEADER.classList.remove('hide');
+  } else if (HEADER.clientHeight > currentScrollTop) {
+    HEADER.classList.remove('reveal');
+  } else if (HEADER.clientHeight > currentScrollTop || MAIN_VISUAL.clientHeight < currentScrollTop && prevScrollTop < currentScrollTop) {
+    HEADER.classList.remove('reveal');
+    HEADER.classList.add('hide');
+  }
+
+  prevScrollTop = currentScrollTop;
+}
+
+; // header
+// 헤더 메뉴에 hover 했을때 헤더 스타일 바꾸기 (reveal 클래스 추가)
+
+var atagHover = HEADER.querySelectorAll('nav a');
+atagHover.forEach(function (aTag) {
+  aTag.addEventListener('mouseover', function () {
+    HEADER.classList.add('reveal');
+  });
+  aTag.addEventListener('mouseout', function () {
+    var currentScrollTop = document.documentElement.scrollTop;
+
+    if (HEADER.clientHeight > currentScrollTop) {
+      HEADER.classList.remove('reveal');
+    }
+  });
+}); // main
 // 메인 비주얼 슬라이더
+
 var sliderImages = document.querySelectorAll(".swiper-slide");
 var arrowLeft = document.querySelector(".swiper-button-prev");
 var arrowRight = document.querySelector(".swiper-button-next");
@@ -603,19 +645,8 @@ arrowRight.addEventListener("click", function () {
 
   slideRight();
 });
-startSlide(); // main
-// 메인 뉴스 영역 mosonry 스타일 적용
-// window.onload = () => {
-//   document.querySelectorAll('.ke-list__item').forEach((item) => {
-//     item.style.gridRowEnd = `span ${item.clientHeight}`;
-//   });
-//   const wrap = document.querySelector('.main-news__list');
-//   wrap.style.display = 'grid';
-//   wrap.style.gridTemplateColumns = 'repeat(auto-fill, 562rem)';
-//   wrap.style.gridAutoRows = 'auto';
-//   wrap.style.gridColumnGap = '120rem';
-// }
-// 2022.10.27 1차과제 - 1차 리뷰 후 추가
+startSlide(); // main-news
+// masonry layout js 라이브러리 사용
 
 window.addEventListener('load', /*#__PURE__*/(0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
   var elem;
@@ -625,7 +656,6 @@ window.addEventListener('load', /*#__PURE__*/(0, _asyncToGenerator2.default)( /*
         case 0:
           elem = document.querySelector('.main-news__list');
           new Masonry(elem, {
-            // options
             itemSelector: '.ke-list__item',
             columnWidth: 562,
             gutter: 120
@@ -641,77 +671,29 @@ window.addEventListener('load', /*#__PURE__*/(0, _asyncToGenerator2.default)( /*
 window.addEventListener('resize', function () {});
 
 function masonry_layout() {
-  var masonry = document.querySelectorAll('.main-news__list'); // console.log(masonry);
-
+  var masonry = document.querySelectorAll('.main-news__list');
   if (!masonry) return !1;
   masonry.forEach(function (el) {
     var imgMove = [0, 0];
-    var leftWidth = 562; // console.log(el);
-
-    var item = el.getElementsByClassName('ke-list__item'); // console.log(item);
+    var leftWidth = 562;
+    var item = el.getElementsByClassName('ke-list__item');
 
     for (var i = 0; i < item.length; i += 1) {
       var min = imgMove.indexOf(Math.min.apply(0, imgMove));
       console.log(item[i].offsetHeight);
-      var x = leftWidth * min; // console.log(item[i]);
-
-      var itemHeight = item[i].offsetHeight; // console.log(itemHeight);
-
-      var y = imgMove[min]; // console.log(y)
-
+      var x = leftWidth * min;
+      var itemHeight = item[i].offsetHeight;
+      var y = imgMove[min];
       imgMove[min] += itemHeight;
       item[i].setAttribute('style', "left:".concat(x, "px; top:").concat(y, "px"));
     }
 
-    var imgMax = Math.max.apply(0, imgMove); // console.log(imgMax)
-
+    var imgMax = Math.max.apply(0, imgMove);
     el.setAttribute('style', "height: ".concat(imgMax, "px"));
   });
-} // header
-// 페이지 스크롤시 헤더 메뉴 숨기고 보이는 이벤트
-
-
-var HEADER = document.querySelector('header');
-var MAIN_VISUAL = document.querySelector('.main-visual');
-var prevScrollTop;
-
-window.onscroll = function () {
-  scrollEvent_header();
-};
-
-function scrollEvent_header() {
-  var currentScrollTop = document.documentElement.scrollTop;
-
-  if (HEADER.clientHeight < currentScrollTop && currentScrollTop < MAIN_VISUAL.clientHeight || MAIN_VISUAL.clientHeight < currentScrollTop && prevScrollTop > currentScrollTop) {
-    HEADER.classList.add('reveal');
-    HEADER.classList.remove('hide');
-  } else if (HEADER.clientHeight > currentScrollTop) {
-    HEADER.classList.remove('reveal');
-  } else if (HEADER.clientHeight > currentScrollTop || MAIN_VISUAL.clientHeight < currentScrollTop && prevScrollTop < currentScrollTop) {
-    HEADER.classList.remove('reveal');
-    HEADER.classList.add('hide');
-  }
-
-  prevScrollTop = currentScrollTop;
-}
-
-; // header
-// 헤더 메뉴에 hover 했을때 헤더 스타일 바꾸기 (reveal 클래스 추가)
-
-var atagHover = HEADER.querySelectorAll('nav a');
-atagHover.forEach(function (aTag) {
-  aTag.addEventListener('mouseover', function () {
-    HEADER.classList.add('reveal');
-  });
-  aTag.addEventListener('mouseout', function () {
-    var currentScrollTop = document.documentElement.scrollTop;
-
-    if (HEADER.clientHeight > currentScrollTop) {
-      HEADER.classList.remove('reveal');
-    }
-  });
-}); // footer
+} // footer
 // 푸터 드롭다운 메뉴 펼치기
+
 
 var footerDropdown = document.querySelectorAll('.footer__dropdown > a, .footer__dropdown button');
 footerDropdown.forEach(function (item) {
@@ -750,7 +732,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61342" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63301" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
