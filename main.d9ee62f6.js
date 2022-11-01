@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./..\\fonts\\KakaoBig.woff2":[["KakaoBig.0897143f.woff2","src/fonts/KakaoBig.woff2"],"src/fonts/KakaoBig.woff2"],"./..\\fonts\\KakaoBig.woff":[["KakaoBig.8a834a0f.woff","src/fonts/KakaoBig.woff"],"src/fonts/KakaoBig.woff"],"./..\\fonts\\KakaoBig-Bold.woff2":[["KakaoBig-Bold.3052c45b.woff2","src/fonts/KakaoBig-Bold.woff2"],"src/fonts/KakaoBig-Bold.woff2"],"./..\\fonts\\KakaoBig-Bold.woff":[["KakaoBig-Bold.089298c1.woff","src/fonts/KakaoBig-Bold.woff"],"src/fonts/KakaoBig-Bold.woff"],"./..\\fonts\\Gilroy-Medium.woff2":[["Gilroy-Medium.8e7ed7eb.woff2","src/fonts/Gilroy-Medium.woff2"],"src/fonts/Gilroy-Medium.woff2"],"./..\\fonts\\Gilroy-SemiBold.woff2":[["Gilroy-SemiBold.731f01d3.woff2","src/fonts/Gilroy-SemiBold.woff2"],"src/fonts/Gilroy-SemiBold.woff2"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./..\\assets\\fonts\\KakaoBig.woff2":[["KakaoBig.25fceaf9.woff2","src/assets/fonts/KakaoBig.woff2"],"src/assets/fonts/KakaoBig.woff2"],"./..\\assets\\fonts\\KakaoBig.woff":[["KakaoBig.1f146b88.woff","src/assets/fonts/KakaoBig.woff"],"src/assets/fonts/KakaoBig.woff"],"./..\\assets\\fonts\\KakaoBig-Bold.woff2":[["KakaoBig-Bold.19e55a96.woff2","src/assets/fonts/KakaoBig-Bold.woff2"],"src/assets/fonts/KakaoBig-Bold.woff2"],"./..\\assets\\fonts\\KakaoBig-Bold.woff":[["KakaoBig-Bold.1143b3fc.woff","src/assets/fonts/KakaoBig-Bold.woff"],"src/assets/fonts/KakaoBig-Bold.woff"],"./..\\assets\\fonts\\Gilroy-Medium.woff2":[["Gilroy-Medium.96d76b19.woff2","src/assets/fonts/Gilroy-Medium.woff2"],"src/assets/fonts/Gilroy-Medium.woff2"],"./..\\assets\\fonts\\Gilroy-SemiBold.woff2":[["Gilroy-SemiBold.c3b0e233.woff2","src/assets/fonts/Gilroy-SemiBold.woff2"],"src/assets/fonts/Gilroy-SemiBold.woff2"],"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59439" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63301" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
